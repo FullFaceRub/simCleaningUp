@@ -8,3 +8,6 @@ create table bin_contents
 , bin_id integer references bins(bin_id)
 , bin_content varchar(180)
 , quantity integer)
+
+select bin_name, bin_price from bins
+where quantity IN (select quantity from bin_contents where quantity=1)
